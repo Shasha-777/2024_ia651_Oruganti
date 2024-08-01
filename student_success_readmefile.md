@@ -35,7 +35,7 @@ Feature Creation: Several new features were engineered to improve the model’s 
 ### Mis-steps: 
 One of the challenges faced was over-engineering features, which led to initial overfitting of the model. This issue was addressed by performing feature importance analysis and selecting only the most relevant features, thus improving the model's generalization to unseen data.
 
-[Feature Importance of Random Forest](Figure_4.png)
+![Feature Importance of Random Forest](Figure_4.png)
 
 ## Exploratory Data Analysis (EDA):
 
@@ -347,7 +347,7 @@ We conducted extensive hyperparameter tuning using GridSearchCV and RandomizedSe
 #### Feature Engineering: 
 We created new features, such as the interaction between certain curricular units and grades, which helped improve model performance. These engineered features provided additional predictive power, contributing to a more accurate model.
 
-[Feature Importance](Figure_11.png)
+![Feature Importance](Figure_11.png)
 
 ### Results
 The final model, which was a tuned Random Forest with selected features and polynomial transformations, showed a good balance between bias and variance. It achieved an accuracy of 77% on the test set, with the following metrics:
