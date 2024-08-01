@@ -83,7 +83,6 @@ Initially, all features were considered for model training. The feature importan
 ### Feature Selection
 Based on the feature importance scores, less relevant features were dropped to reduce model complexity and improve performance. The final model included only the most important features, such as 'Admission grade', 'Curricular units 1st sem (grade)', and 'Age at enrollment'. This selection process led to a more efficient model with improved accuracy, as evidenced by better cross-validation scores and reduced overfitting in the training phase. The iterative approach of training and evaluating the model with different subsets of features helped in refining the model to its optimal configuration.
 
-
 ![Distribution of Selected Features](Figure_2.png)
 
 # Feature Engineering
