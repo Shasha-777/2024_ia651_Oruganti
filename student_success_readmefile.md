@@ -35,7 +35,7 @@ Feature Creation: Several new features were engineered to improve the model’s 
 ### Mis-steps: 
 One of the challenges faced was over-engineering features, which led to initial overfitting of the model. This issue was addressed by performing feature importance analysis and selecting only the most relevant features, thus improving the model's generalization to unseen data.
 
-[Feature Importance of Random Forest](figure_4.png)
+[Feature Importance of Random Forest](Figure_4.png)
 
 ## Exploratory Data Analysis (EDA):
 
@@ -66,7 +66,7 @@ Enrolled: 35%
 Graduate: 45%
 This class imbalance needs to be addressed during model training to prevent the model from being biased towards the majority class.
 
-![Distribution of Target Classes](figure_1.png)
+![Distribution of Target Classes](Figure_1.png)
 
 ## Correlation Analysis
 ### Correlation Matrix
@@ -75,7 +75,7 @@ A correlation matrix was used to identify relationships between features. Strong
 ### Heatmap
 A heatmap was created to visualize the correlation matrix, making it easier to identify strongly correlated features. This visualization showed clusters of features that were highly correlated, guiding us in deciding which features to keep or drop from the model to avoid redundancy.
 
-![Correlation Matrix](figure_3.png)
+![Correlation Matrix](Figure_3.png)
 
 ### Feature Importance Using All Features
 Initially, all features were considered for model training. The feature importance analysis indicated that not all features contributed equally to the model's performance. Features such as 'Admission grade' and 'Curricular units 2nd sem (grade)' were identified as highly influential, while others like 'Marital status' and 'Educational special needs' had minimal impact.
@@ -84,7 +84,7 @@ Initially, all features were considered for model training. The feature importan
 Based on the feature importance scores, less relevant features were dropped to reduce model complexity and improve performance. The final model included only the most important features, such as 'Admission grade', 'Curricular units 1st sem (grade)', and 'Age at enrollment'. This selection process led to a more efficient model with improved accuracy, as evidenced by better cross-validation scores and reduced overfitting in the training phase. The iterative approach of training and evaluating the model with different subsets of features helped in refining the model to its optimal configuration.
 
 
-![Distribution of Selected Features](figure_2.png)
+![Distribution of Selected Features](Figure_2.png)
 
 # Feature Engineering
 Feature engineering involves transforming raw data into features that better represent the underlying problem to predictive models, resulting in improved model performance.
@@ -222,7 +222,7 @@ Balanced accuracy, which averaged the recall obtained on each class, was crucial
 #### ROC-AUC (Receiver Operating Characteristic - Area Under Curve):
 The ROC-AUC score was used to measure the model's ability to distinguish between classes. The final model achieved an AUC of 0.82, indicating a strong ability to differentiate between students who would drop out, remain enrolled, or graduate.
 
-![ROC - AUC Curve](figure_7.png)
+![ROC - AUC Curve](Figure_7.png)
 
 #### Precision:
 Precision was critical to understand how many of the predicted dropouts and graduates were actually correct. For the dropout class, the precision was 85%, indicating that 85% of students predicted to drop out were actual dropouts. For the graduate class, the precision was 78%, showing a good performance in predicting graduates accurately.
@@ -231,7 +231,7 @@ Precision was critical to understand how many of the predicted dropouts and grad
 Recall measured how well the model captured all actual positive instances. For dropouts, the recall was 76%, indicating that the model correctly identified 76% of all actual dropouts. For graduates, the recall was 94%, showing that the model was very effective in identifying most of the graduates.
 
 
-![Precission-Recall Curve](figure_6.png)
+![Precission-Recall Curve](Figure_6.png)
 
 #### F1-Score:
 The F1-score, balancing both precision and recall, was used to provide a single metric for model evaluation. The F1-score for dropouts was 80% and for graduates was 85%, demonstrating the model's overall effectiveness in handling the imbalanced classes.
@@ -247,7 +247,7 @@ False Positives (Graduate): 6
 True Negatives (Graduate): 78
 This detailed view helped in understanding the types of errors the model was making and guided further tuning and improvements.
 
-![Confusion Matrix Model](figure_8.png)
+![Confusion Matrix Model](Figure_8.png)
 
 ## Highlight Model Weaknesses:
 Despite the strong performance, the model showed weaknesses in predicting the "Enrolled" class, with a precision of 55% and recall of 35%. This indicated that the model had difficulty distinguishing enrolled students from dropouts and graduates, suggesting a need for more refined features or additional data to better capture the characteristics of enrolled students.
@@ -339,7 +339,7 @@ We experimented with polynomial features to capture interactions between feature
 
 
 
-![Confusion Matrix with Polynomial Features](figure_12.png)
+![Confusion Matrix with Polynomial Features](Figure_12.png)
 
 #### Hyperparameter Tuning: 
 We conducted extensive hyperparameter tuning using GridSearchCV and RandomizedSearchCV. For instance, tuning the Random Forest parameters (number of trees, depth, minimum samples split, etc.) resulted in the optimal model configuration that balanced bias and variance.
@@ -347,7 +347,7 @@ We conducted extensive hyperparameter tuning using GridSearchCV and RandomizedSe
 #### Feature Engineering: 
 We created new features, such as the interaction between certain curricular units and grades, which helped improve model performance. These engineered features provided additional predictive power, contributing to a more accurate model.
 
-[Feature Importance](figure_11.png)
+[Feature Importance](Figure_11.png)
 
 ### Results
 The final model, which was a tuned Random Forest with selected features and polynomial transformations, showed a good balance between bias and variance. It achieved an accuracy of 77% on the test set, with the following metrics:
