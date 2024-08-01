@@ -35,6 +35,8 @@ Feature Creation: Several new features were engineered to improve the model’s 
 ### Mis-steps: 
 One of the challenges faced was over-engineering features, which led to initial overfitting of the model. This issue was addressed by performing feature importance analysis and selecting only the most relevant features, thus improving the model's generalization to unseen data.
 
+[Feature Importance of Random Forest](figure_4.png)
+
 ## Exploratory Data Analysis (EDA):
 
 ### X and Y Variables
@@ -73,11 +75,16 @@ A correlation matrix was used to identify relationships between features. Strong
 ### Heatmap
 A heatmap was created to visualize the correlation matrix, making it easier to identify strongly correlated features. This visualization showed clusters of features that were highly correlated, guiding us in deciding which features to keep or drop from the model to avoid redundancy.
 
+![Correlation Matrix](figure_3.png)
+
 ### Feature Importance Using All Features
 Initially, all features were considered for model training. The feature importance analysis indicated that not all features contributed equally to the model's performance. Features such as 'Admission grade' and 'Curricular units 2nd sem (grade)' were identified as highly influential, while others like 'Marital status' and 'Educational special needs' had minimal impact.
 
 ### Feature Selection
 Based on the feature importance scores, less relevant features were dropped to reduce model complexity and improve performance. The final model included only the most important features, such as 'Admission grade', 'Curricular units 1st sem (grade)', and 'Age at enrollment'. This selection process led to a more efficient model with improved accuracy, as evidenced by better cross-validation scores and reduced overfitting in the training phase. The iterative approach of training and evaluating the model with different subsets of features helped in refining the model to its optimal configuration.
+
+
+![Distribution of Selected Features](figure_2.png)
 
 # Feature Engineering
 Feature engineering involves transforming raw data into features that better represent the underlying problem to predictive models, resulting in improved model performance.
@@ -115,14 +122,74 @@ We experimented with multiple models to determine the best fit for our classific
 #### Logistic Regression
 Chosen for its simplicity and efficiency for binary classification tasks. It serves as a good baseline model to compare the performance of more complex models.
 
+### Logistic Regression Report
+
+| Class      | Precision | Recall | F1-Score | Support |
+|------------|-----------|--------|----------|---------|
+| Dropout    | 0.85      | 0.68   | 0.76     | 284     |
+| Enrolled   | 0.41      | 0.64   | 0.50     | 159     |
+| Graduate   | 0.86      | 0.79   | 0.82     | 442     |
+| **Accuracy**  |           |        |          | **0.73**  |
+| **Macro Avg** | 0.70      | 0.70   | 0.69     | 885     |
+| **Weighted Avg** | 0.77  | 0.73   | 0.74     | 885     |
+
+
 #### Decision Tree Classifier
 Provides a visual representation of decision rules and is easy to interpret. However, it is prone to overfitting, which was mitigated by using ensemble methods.
+
+### Decision Tree Report
+
+| Class      | Precision | Recall | F1-Score | Support |
+|------------|-----------|--------|----------|---------|
+| Dropout    | 0.68      | 0.64   | 0.66     | 284     |
+| Enrolled   | 0.36      | 0.43   | 0.39     | 159     |
+| Graduate   | 0.78      | 0.75   | 0.76     | 442     |
+| **Accuracy**  |           |        |          | **0.66**  |
+| **Macro Avg** | 0.60      | 0.61   | 0.60     | 885     |
+| **Weighted Avg** | 0.67  | 0.66   | 0.66     | 885     |
+
 
 #### Random Forest Classifier
 An ensemble method that improves accuracy and controls overfitting by constructing multiple decision trees. This model showed significant improvement in predictive performance due to its ability to handle large datasets with higher dimensionality.
 
+### Random Forest Report
+
+| Class      | Precision | Recall | F1-Score | Support |
+|------------|-----------|--------|----------|---------|
+| Dropout    | 0.82      | 0.75   | 0.78     | 284     |
+| Enrolled   | 0.59      | 0.38   | 0.46     | 159     |
+| Graduate   | 0.79      | 0.94   | 0.86     | 442     |
+| **Accuracy**  |           |        |          | **0.78**  |
+| **Macro Avg** | 0.73      | 0.69   | 0.70     | 885     |
+| **Weighted Avg** | 0.77  | 0.78   | 0.76     | 885     |
+
+
+### Random Forest with Selected Features Report
+
+| Class      | Precision | Recall | F1-Score | Support |
+|------------|-----------|--------|----------|---------|
+| Dropout    | 0.81      | 0.72   | 0.76     | 284     |
+| Enrolled   | 0.53      | 0.38   | 0.44     | 159     |
+| Graduate   | 0.78      | 0.91   | 0.84     | 442     |
+| **Accuracy**  |           |        |          | **0.76**  |
+| **Macro Avg** | 0.71      | 0.67   | 0.68     | 885     |
+| **Weighted Avg** | 0.75  | 0.76   | 0.75     | 885     |
+
+
 #### Gradient Boosting Classifier
 Another ensemble method that builds models sequentially to correct errors from previous models. It demonstrated excellent performance by improving model accuracy through boosting techniques.
+
+### Gradient Boosting Report
+
+| Class        | Precision | Recall | F1-Score | Support |
+|--------------|-----------|--------|----------|---------|
+| Dropout      | 0.80      | 0.73   | 0.76     | 284     |
+| Enrolled     | 0.53      | 0.41   | 0.46     | 159     |
+| Graduate     | 0.80      | 0.90   | 0.85     | 442     |
+| **Accuracy** |           |        |          | **0.76**|
+| **Macro Avg**| 0.71      | 0.68   | 0.69     | 885     |
+| **Weighted Avg** | 0.75  | 0.76   | 0.75     | 885     |
+
 
 ### Thought Process for Model Selection
 #### Initial Selection: 
@@ -155,11 +222,16 @@ Balanced accuracy, which averaged the recall obtained on each class, was crucial
 #### ROC-AUC (Receiver Operating Characteristic - Area Under Curve):
 The ROC-AUC score was used to measure the model's ability to distinguish between classes. The final model achieved an AUC of 0.82, indicating a strong ability to differentiate between students who would drop out, remain enrolled, or graduate.
 
+![ROC - AUC Curve](figure_7.png)
+
 #### Precision:
 Precision was critical to understand how many of the predicted dropouts and graduates were actually correct. For the dropout class, the precision was 85%, indicating that 85% of students predicted to drop out were actual dropouts. For the graduate class, the precision was 78%, showing a good performance in predicting graduates accurately.
 
 #### Recall:
 Recall measured how well the model captured all actual positive instances. For dropouts, the recall was 76%, indicating that the model correctly identified 76% of all actual dropouts. For graduates, the recall was 94%, showing that the model was very effective in identifying most of the graduates.
+
+
+![Precission-Recall Curve](figure_6.png)
 
 #### F1-Score:
 The F1-score, balancing both precision and recall, was used to provide a single metric for model evaluation. The F1-score for dropouts was 80% and for graduates was 85%, demonstrating the model's overall effectiveness in handling the imbalanced classes.
@@ -174,6 +246,8 @@ True Positives (Graduate): 94
 False Positives (Graduate): 6
 True Negatives (Graduate): 78
 This detailed view helped in understanding the types of errors the model was making and guided further tuning and improvements.
+
+![Confusion Matrix Model](figure_8.png)
 
 ## Highlight Model Weaknesses:
 Despite the strong performance, the model showed weaknesses in predicting the "Enrolled" class, with a precision of 55% and recall of 35%. This indicated that the model had difficulty distinguishing enrolled students from dropouts and graduates, suggesting a need for more refined features or additional data to better capture the characteristics of enrolled students.
@@ -228,21 +302,52 @@ For instance, the Logistic Regression model achieved an accuracy of approximatel
 #### Cross-Validation: 
 We implemented k-fold cross-validation to ensure our model generalizes well to unseen data. This technique provided a more reliable estimate of model performance by evaluating the model on different subsets of the data.
 
+### Cross-Validation Scores
+
+| Fold | Cross-Validation Score |
+|------|------------------------|
+| 1    | 0.77683616             |
+| 2    | 0.78954802             |
+| 3    | 0.78107345             |
+| 4    | 0.79378531             |
+| 5    | 0.76944837             |
+
+**Mean Cross-Validation Score**: 0.7821382622523754
+
+
 #### Simplifying the Model: 
 For the Decision Tree model, we pruned the tree by setting maximum depth and minimum samples per leaf. This reduced the model's complexity and helped mitigate overfitting. For example, limiting the depth to 10 resulted in a more balanced performance between training and test sets.
 
 #### Ensemble Methods: 
 We employed ensemble methods like Random Forest and Gradient Boosting. These methods combine multiple decision trees to reduce the risk of overfitting. The Random Forest model, for instance, showed improved generalization and balanced performance across classes. After hyperparameter tuning, the best Random Forest model achieved an accuracy of 78% on the test set.
 
+### Best Random Forest Report
+
+| Class      | Precision | Recall | F1-Score | Support |
+|------------|-----------|--------|----------|---------|
+| Dropout    | 0.82      | 0.75   | 0.78     | 284     |
+| Enrolled   | 0.59      | 0.38   | 0.46     | 159     |
+| Graduate   | 0.79      | 0.94   | 0.86     | 442     |
+| **Accuracy** |           |        | 0.78     | 885     |
+| **Macro Avg** | 0.73   | 0.69   | 0.70     | 885     |
+| **Weighted Avg** | 0.77 | 0.78   | 0.76     | 885     |
+
+
 ### Mitigating Underfitting
 #### Adding More Features: 
 We experimented with polynomial features to capture interactions between features. By adding polynomial features of degree 2, the Random Forest model's performance improved slightly, indicating that the model could capture more complex patterns in the data.
+
+
+
+![Confusion Matrix with Polynomial Features](figure_12.png)
 
 #### Hyperparameter Tuning: 
 We conducted extensive hyperparameter tuning using GridSearchCV and RandomizedSearchCV. For instance, tuning the Random Forest parameters (number of trees, depth, minimum samples split, etc.) resulted in the optimal model configuration that balanced bias and variance.
 
 #### Feature Engineering: 
 We created new features, such as the interaction between certain curricular units and grades, which helped improve model performance. These engineered features provided additional predictive power, contributing to a more accurate model.
+
+[Feature Importance](figure_11.png)
 
 ### Results
 The final model, which was a tuned Random Forest with selected features and polynomial transformations, showed a good balance between bias and variance. It achieved an accuracy of 77% on the test set, with the following metrics:
