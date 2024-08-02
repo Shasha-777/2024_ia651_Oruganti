@@ -2,6 +2,24 @@
 # Student Dropout and Academic Success Prediction
 Submitted by: Shashanka Oruganti
 
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Prediction Objective](#prediction-objective)
+3. [Process Overview](#process-overview)
+4. [Data Cleaning and Preprocessing](#data-cleaning-and-preprocessing)
+5. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+6. [Feature Engineering](#feature-engineering)
+7. [Model Fitting](#model-fitting)
+8. [Model Selection](#model-selection)
+9. [Validation and Metrics](#validation-and-metrics)
+10. [Confusion Matrix and Discussion](#confusion-matrix-and-discussion)
+11. [Highlighting Model Weaknesses](#highlighting-model-weaknesses)
+12. [Future Work](#future-work)
+13. [Conclusion](#conclusion)
+14. [References](#references)
+
+
 # Introduction
 This project involves a dataset created from a higher education institution. The primary goal is to predict students' dropout and academic success. By identifying key factors that influence these outcomes, I aim to help educational institutions improve their support systems, academic advising, and retention strategies.
 
