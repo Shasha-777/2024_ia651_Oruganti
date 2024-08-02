@@ -38,7 +38,7 @@ One of the challenges faced was over-engineering features, which led to initial 
 
 ![Feature Importance of Random Forest](Figure_4.png)
 
-![Feature Importance - Permutation](figure_9.png)
+![Feature Importance - Permutation](Figure_9.png)
 
 ## Exploratory Data Analysis (EDA):
 
