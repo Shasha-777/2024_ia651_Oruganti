@@ -22,6 +22,48 @@ During the course of this project, several iterative approaches, mis-steps, and 
 Exploration: The initial phase involved understanding the dataset thoroughly. This included examining the data structure, identifying missing values, and understanding the distribution of various features.
 Challenges: One of the first challenges encountered was dealing with missing values and understanding how to appropriately handle them without losing significant information.
 
+# Dataset Information
+
+The dataset used for this project includes various features related to students' academic and personal backgrounds. Below is a summary of the dataset structure:
+
+| Column                                       | Non-Null Count | Dtype   |
+|----------------------------------------------|----------------|---------|
+| Marital status                               | 4424 non-null  | int64   |
+| Application mode                             | 4424 non-null  | int64   |
+| Application order                            | 4424 non-null  | int64   |
+| Course                                       | 4424 non-null  | int64   |
+| Daytime/evening attendance                   | 4424 non-null  | int64   |
+| Previous qualification                       | 4424 non-null  | int64   |
+| Previous qualification (grade)               | 4424 non-null  | float64 |
+| Nacionality                                  | 4424 non-null  | int64   |
+| Mother's qualification                       | 4424 non-null  | int64   |
+| Father's qualification                       | 4424 non-null  | int64   |
+| Mother's occupation                          | 4424 non-null  | int64   |
+| Father's occupation                          | 4424 non-null  | int64   |
+| Admission grade                              | 4424 non-null  | float64 |
+| Displaced                                    | 4424 non-null  | int64   |
+| Educational special needs                    | 4424 non-null  | int64   |
+| Debtor                                       | 4424 non-null  | int64   |
+| Tuition fees up to date                      | 4424 non-null  | int64   |
+| Gender                                       | 4424 non-null  | int64   |
+| Scholarship holder                           | 4424 non-null  | int64   |
+| Age at enrollment                            | 4424 non-null  | float64 |
+| International                                | 4424 non-null  | int64   |
+| Curricular units 1st sem (credited)          | 4424 non-null  | int64   |
+| Curricular units 1st sem (enrolled)          | 4424 non-null  | int64   |
+| Curricular units 1st sem (evaluations)       | 4424 non-null  | int64   |
+| Curricular units 1st sem (grade)             | 4424 non-null  | float64 |
+| Curricular units 1st sem (approved)          | 4424 non-null  | int64   |
+| Curricular units 2nd sem (credited)          | 4424 non-null  | int64   |
+| Curricular units 2nd sem (enrolled)          | 4424 non-null  | int64   |
+| Curricular units 2nd sem (evaluations)       | 4424 non-null  | int64   |
+| Curricular units 2nd sem (grade)             | 4424 non-null  | float64 |
+| Curricular units 2nd sem (approved)          | 4424 non-null  | int64   |
+| Unemployment rate                            | 4424 non-null  | float64 |
+| Inflation rate                               | 4424 non-null  | float64 |
+| GDP                                          | 4424 non-null  | float64 |
+| Target                                       | 4424 non-null  | object  |
+
 ## Data Cleaning and Preprocessing:
 ### Data Cleaning: 
 The initial phase of the project involved cleaning the data by handling missing values, encoding categorical variables, and scaling numerical features. Various methods were explored to impute missing values, and label encoding was chosen for categorical features after evaluating the suitability of one-hot encoding.
