@@ -32,10 +32,13 @@ This phase involved multiple iterations to ensure the data was clean and well-pr
 ## Feature Engineering:
 Feature Creation: Several new features were engineered to improve the model’s performance. This included creating polynomial features to capture non-linear relationships and interactions between existing features.
 
+
 ### Mis-steps: 
 One of the challenges faced was over-engineering features, which led to initial overfitting of the model. This issue was addressed by performing feature importance analysis and selecting only the most relevant features, thus improving the model's generalization to unseen data.
 
 ![Feature Importance of Random Forest](Figure_4.png)
+
+![Feature Importance - Permutation](figure_9.png)
 
 ## Exploratory Data Analysis (EDA):
 
@@ -246,6 +249,8 @@ False Positives (Graduate): 6
 True Negatives (Graduate): 78
 This detailed view helped in understanding the types of errors the model was making and guided further tuning and improvements.
 
+![Confusion Matrix Model](Figure_5.png)
+
 ![Confusion Matrix Model](Figure_8.png)
 
 ## Highlight Model Weaknesses:
@@ -336,9 +341,7 @@ I have employed ensemble methods like Random Forest and Gradient Boosting. These
 #### Adding More Features: 
 I have experimented with polynomial features to capture interactions between features. By adding polynomial features of degree 2, the Random Forest model's performance improved slightly, indicating that the model could capture more complex patterns in the data.
 
-
-
-![Confusion Matrix with Polynomial Features](Figure_12.png)
+![Confusion Matrix with Polynomial Features](Figure_10.png)
 
 #### Hyperparameter Tuning: 
 I have conducted extensive hyperparameter tuning using GridSearchCV and RandomizedSearchCV. For instance, tuning the Random Forest parameters (number of trees, depth, minimum samples split, etc.) resulted in the optimal model configuration that balanced bias and variance.
