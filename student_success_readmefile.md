@@ -3,7 +3,7 @@
 Submitted by: Shashanka Oruganti
 
 # Introduction
-This project involves a dataset created from a higher education institution. The primary goal is to predict students' dropout and academic success. By identifying key factors that influence these outcomes, we aim to help educational institutions improve their support systems, academic advising, and retention strategies.
+This project involves a dataset created from a higher education institution. The primary goal is to predict students' dropout and academic success. By identifying key factors that influence these outcomes, I aim to help educational institutions improve their support systems, academic advising, and retention strategies.
 
 # Prediction Objective
 The objective of this project is to predict the academic outcomes of students at the end of their course duration. The possible outcomes are:
@@ -44,7 +44,7 @@ X Variables: All fields in the dataset except for Dropout status.
 Y Variable: Dropout Status, which is the target variable indicating whether a student dropped out, is currently enrolled, or graduated.
 
 #### Task Type: 
-This project is a classification task. We are predicting categorical outcomes: dropout, enrolled, or graduated.
+This project is a classification task. I am predicting categorical outcomes: dropout, enrolled, or graduated.
 Number of Observations
 The dataset consists of 4424 observations, each representing a student's record at the time of enrollment.
 Feature to Observation Ratio
@@ -104,19 +104,19 @@ Techniques such as SMOTE (Synthetic Minority Over-sampling Technique) and class 
 
 # Model Fitting
 ### Train/Test Splitting
-To evaluate the performance of our models and ensure they generalize well to unseen data, we split the dataset into training and testing sets.
+To evaluate the performance of our models and ensure they generalize well to unseen data, the dataset is split into training and testing sets.
 
 ### Splitting Method
-We used an 80/20 split, where 80% of the data was used for training the model and 20% was set aside for testing. This ratio is commonly used as it provides a good balance between having enough data to train the model and enough data to test its performance.
+I have used an 80/20 split, where 80% of the data was used for training the model and 20% was set aside for testing. This ratio is commonly used as it provides a good balance between having enough data to train the model and enough data to test its performance.
 
 ### Implementation
-We defined our features (X) and target (y) and used the train_test_split function from scikit-learn to perform the split. This method ensures that the split is random and stratified, maintaining the proportion of each class in both the training and testing sets.
+I have defined our features (X) and target (y) and used the train_test_split function from scikit-learn to perform the split. This method ensures that the split is random and stratified, maintaining the proportion of each class in both the training and testing sets.
 
 ### Risk of Data Leakage
-Data leakage occurs when information from outside the training dataset is used to create the model. In this project, we ensured that there was no data leakage by splitting the dataset before any preprocessing steps such as scaling or encoding. This is particularly important in time series datasets where future data might inadvertently influence the model, but since our dataset does not involve time-series data, the risk is minimized.
+Data leakage occurs when information from outside the training dataset is used to create the model. In this project, I have ensured that there was no data leakage by splitting the dataset before any preprocessing steps such as scaling or encoding. This is particularly important in time series datasets where future data might inadvertently influence the model, but since our dataset does not involve time-series data, the risk is minimized.
 
 ## Model Selection
-We experimented with multiple models to determine the best fit for our classification task. The models considered include:
+I have experimented with multiple models to determine the best fit for our classification task. The models considered include:
 
 #### Logistic Regression
 Chosen for its simplicity and efficiency for binary classification tasks. It serves as a good baseline model to compare the performance of more complex models.
@@ -192,24 +192,24 @@ Another ensemble method that builds models sequentially to correct errors from p
 
 ### Thought Process for Model Selection
 #### Initial Selection: 
-We started with simpler models like Logistic Regression to establish a baseline performance.
+I have started with simpler models like Logistic Regression to establish a baseline performance.
 #### Complexity and Performance: 
-As we moved to more complex models like Random Forest and Gradient Boosting, we aimed to capture more intricate patterns in the data. Ensemble methods were particularly attractive due to their ability to reduce overfitting and improve predictive performance.
+As I have moved to more complex models like Random Forest and Gradient Boosting, I aimed to capture more intricate patterns in the data. Ensemble methods were particularly attractive due to their ability to reduce overfitting and improve predictive performance.
 ### Hyperparameter Selection
-Hyperparameters significantly influence the performance of machine learning models. We used GridSearchCV and RandomizedSearchCV to find the optimal set of hyperparameters for our models. This involved:
+Hyperparameters significantly influence the performance of machine learning models. I used GridSearchCV and RandomizedSearchCV to find the optimal set of hyperparameters for our models. This involved:
 
 #### GridSearchCV
 Purpose: Performs an exhaustive search over specified parameter grids for an estimator.
-Implementation: We defined a parameter grid for Random Forest, including n_estimators, max_depth, min_samples_split, min_samples_leaf, and bootstrap. GridSearchCV evaluated all possible combinations to find the best set of hyperparameters based on cross-validated performance.
+Implementation: I have defined a parameter grid for Random Forest, including n_estimators, max_depth, min_samples_split, min_samples_leaf, and bootstrap. GridSearchCV evaluated all possible combinations to find the best set of hyperparameters based on cross-validated performance.
 
 #### RandomizedSearchCV
 Purpose: Similar to GridSearchCV, but it samples a fixed number of hyperparameter settings from specified distributions, making it more efficient for larger parameter spaces.
-Implementation: We defined distributions for Random Forest hyperparameters, including n_estimators, max_depth, min_samples_split, min_samples_leaf, and bootstrap. RandomizedSearchCV sampled from these distributions and evaluated the performance to identify the best hyperparameters.
+Implementation: I have defined distributions for Random Forest hyperparameters, including n_estimators, max_depth, min_samples_split, min_samples_leaf, and bootstrap. RandomizedSearchCV sampled from these distributions and evaluated the performance to identify the best hyperparameters.
 Both methods ensured that our models were tuned for optimal performance, reducing the risk of overfitting and improving generalization to new data.
 
 ## Validation and Metrics
 Key Metrics
-For evaluating our models, we focused on several key metrics to ensure a comprehensive assessment of their performance:
+For evaluating our models, I have focused on several key metrics to ensure a comprehensive assessment of their performance:
 
 ### Validation / Metrics
 #### Accuracy:
@@ -277,7 +277,7 @@ Confidence: Medium
 Explanation: The model predicted dropout due to moderate GPA and no part-time job, but the student remained enrolled possibly due to other unaccounted factors like strong personal motivation or support systems.
 
 ### Synthesized Prediction Examples
-To demonstrate how the model generalizes to new data, we created two synthesized examples:
+To demonstrate how the model generalizes to new data, I have created two synthesized examples:
 
 #### Synthesized Example 1
 Features: High school GPA: 3.8, Entrance Exam Score: 85, Family Income: High, Scholarship: Yes, Part-Time Job: No
@@ -289,7 +289,7 @@ Features: High school GPA: 2.0, Entrance Exam Score: 60, Family Income: Low, Sch
 Predicted: Dropout
 Confidence: High
 Explanation: The student displays multiple risk factors for dropout, and the model confidently predicts dropout based on these features.
-By evaluating these metrics and analyzing prediction examples, we gain a deeper understanding of the model's performance and areas where further improvements are necessary.
+By evaluating these metrics and analyzing prediction examples, I gained a deeper understanding of the model's performance and areas where further improvements are necessary.
 
 ## Overfitting/Underfitting
 #### Identifying Overfitting or Underfitting
@@ -299,7 +299,7 @@ For instance, the Logistic Regression model achieved an accuracy of approximatel
 
 #### Mitigating Overfitting
 #### Cross-Validation: 
-We implemented k-fold cross-validation to ensure our model generalizes well to unseen data. This technique provided a more reliable estimate of model performance by evaluating the model on different subsets of the data.
+I have implemented k-fold cross-validation to ensure our model generalizes well to unseen data. This technique provided a more reliable estimate of model performance by evaluating the model on different subsets of the data.
 
 ### Cross-Validation Scores
 
@@ -315,10 +315,10 @@ We implemented k-fold cross-validation to ensure our model generalizes well to u
 
 
 #### Simplifying the Model: 
-For the Decision Tree model, we pruned the tree by setting maximum depth and minimum samples per leaf. This reduced the model's complexity and helped mitigate overfitting. For example, limiting the depth to 10 resulted in a more balanced performance between training and test sets.
+For the Decision Tree model, I have pruned the tree by setting maximum depth and minimum samples per leaf. This reduced the model's complexity and helped mitigate overfitting. For example, limiting the depth to 10 resulted in a more balanced performance between training and test sets.
 
 #### Ensemble Methods: 
-We employed ensemble methods like Random Forest and Gradient Boosting. These methods combine multiple decision trees to reduce the risk of overfitting. The Random Forest model, for instance, showed improved generalization and balanced performance across classes. After hyperparameter tuning, the best Random Forest model achieved an accuracy of 78% on the test set.
+I have employed ensemble methods like Random Forest and Gradient Boosting. These methods combine multiple decision trees to reduce the risk of overfitting. The Random Forest model, for instance, showed improved generalization and balanced performance across classes. After hyperparameter tuning, the best Random Forest model achieved an accuracy of 78% on the test set.
 
 ### Best Random Forest Report
 
@@ -334,17 +334,17 @@ We employed ensemble methods like Random Forest and Gradient Boosting. These met
 
 ### Mitigating Underfitting
 #### Adding More Features: 
-We experimented with polynomial features to capture interactions between features. By adding polynomial features of degree 2, the Random Forest model's performance improved slightly, indicating that the model could capture more complex patterns in the data.
+I have experimented with polynomial features to capture interactions between features. By adding polynomial features of degree 2, the Random Forest model's performance improved slightly, indicating that the model could capture more complex patterns in the data.
 
 
 
 ![Confusion Matrix with Polynomial Features](Figure_12.png)
 
 #### Hyperparameter Tuning: 
-We conducted extensive hyperparameter tuning using GridSearchCV and RandomizedSearchCV. For instance, tuning the Random Forest parameters (number of trees, depth, minimum samples split, etc.) resulted in the optimal model configuration that balanced bias and variance.
+I have conducted extensive hyperparameter tuning using GridSearchCV and RandomizedSearchCV. For instance, tuning the Random Forest parameters (number of trees, depth, minimum samples split, etc.) resulted in the optimal model configuration that balanced bias and variance.
 
 #### Feature Engineering: 
-We created new features, such as the interaction between certain curricular units and grades, which helped improve model performance. These engineered features provided additional predictive power, contributing to a more accurate model.
+I have created new features, such as the interaction between certain curricular units and grades, which helped improve model performance. These engineered features provided additional predictive power, contributing to a more accurate model.
 
 ![Feature Importance](Figure_11.png)
 
@@ -354,7 +354,7 @@ The final model, which was a tuned Random Forest with selected features and poly
 Dropout: Precision 85%, Recall 77%
 Enrolled: Precision 54%, Recall 34%
 Graduate: Precision 77%, Recall 93%
-The confusion matrix and ROC curves further confirmed the model's balanced performance. Through iterative refinement and careful tuning, we managed to mitigate both overfitting and underfitting, resulting in a robust model suitable for predicting student outcomes.
+The confusion matrix and ROC curves further confirmed the model's balanced performance. Through iterative refinement and careful tuning, I have managed to mitigate both overfitting and underfitting, resulting in a robust model suitable for predicting student outcomes.
 
 ## Production
 ### Deployment Advice
@@ -442,9 +442,9 @@ Regular Updates
 #### Continuous Learning: 
 Implement a system for continuous learning where the model is updated in real-time or at regular intervals with new data.
 #### Feedback Loop: 
-Establish a feedback loop with educators and administrators to refine the model based on their insights and experiences.
+Feedback loop with educators and administrators can be establishedd to refine the model based on their insights and experiences.
 #### Model Monitoring: 
-Monitor the model's performance over time to detect and address any degradation in accuracy or emergence of biases.
+The model's performance can be monitored over time to detect and address any degradation in accuracy or emergence of biases.
 By exploring these strategies, the model's predictive power and applicability in real-world educational settings can be significantly enhanced. This continuous improvement approach ensures that the model remains relevant, accurate, and beneficial for educational institutions and their students.
 
 
