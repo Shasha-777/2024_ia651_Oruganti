@@ -144,6 +144,18 @@ Polynomial features were created to capture interactions between features. For e
 ### Advanced Encoding and Feature Engineering
 #### Normalization: 
 Scaling features to ensure they have a mean of zero and a standard deviation of one. This step is crucial for algorithms like Logistic Regression and Gradient Boosting that are sensitive to the scale of input features.
+
+### First Few Rows of Scaled Training Data
+
+| Index | Marital status | Application mode | Application order | Course | Daytime/evening attendance | Previous qualification | Previous qualification (grade) | Nacionality | Mother's qualification | Father's qualification | Curricular units 1st sem (without evaluations) | Curricular units 2nd sem (credited) | Curricular units 2nd sem (enrolled) | Curricular units 2nd sem (evaluations) | Curricular units 2nd sem (approved) | Curricular units 2nd sem (grade) | Curricular units 2nd sem (without evaluations) | Unemployment rate | Inflation rate | GDP |
+|-------|----------------|------------------|-------------------|--------|---------------------------|------------------------|-------------------------------|-------------|------------------------|------------------------|---------------------------------------------|-------------------------------------|---------------------------------|-----------------------------------|---------------------------------|-------------------------------|-----------------------------------------------|-------------------|----------------|-----|
+| 3383  | 4.769153       | -0.673479        | -0.557496         | 0.148321| 0.35848                   | -0.145019              | -0.200135                     | -0.125267   | -0.023118              | -1.392365              | -0.194476                                     | -0.282375                             | -0.540122                       | -0.764134                         | -1.484596                       | -1.962344                       | -0.196156                                       | -0.173556         | -0.461349      | 0.884784 |
+| 2840  | -0.294763      | 1.161571         | -0.557496         | 0.118740| 0.35848                   | -0.343865              | -0.200135                     | -0.125267   | 1.132802               | 0.957116               | -0.194476                                     | -0.282375                             | -0.082937                       | 1.511975                          | -0.814060                        | 0.212145                        | -0.196156                                       | -0.173556         | -0.461349      | 0.884784 |
+| 564   | -0.294763      | -1.017551        | 3.236694          | 0.111583| 0.35848                   | 0.153250               | -1.031074                     | -0.125267   | -1.179038              | -1.392365              | -0.194476                                     | -0.282375                             | -0.082937                       | -0.005431                         | 0.527012                        | 0.651839                        | -0.196156                                       | -0.285968         | 0.118733       | 0.761597 |
+| 1786  | 1.393209       | 1.161571         | -0.557496         | 0.191738| 0.35848                   | 1.445751               | 0.034039                      | -0.125267   | 1.132802               | 0.957116               | -0.194476                                     | -0.282375                             | -0.082937                       | -2.028640                         | -1.484596                       | -1.962344                       | -0.196156                                       | 1.475143          | 1.133876       | -1.790138 |
+| 3900  | -0.294763      | -1.017551        | 0.960180          | 0.316742| 0.35848                   | -0.343865              | 0.706344                      | -0.125267   | 1.132802               | 1.022380               | -0.194476                                     | -0.282375                             | 0.374248                        | -0.258332                         | 0.527012                        | 0.704602                        | -0.196156                                       | -1.485022         | 0.988856       | 0.136862 |
+
+
 #### Handling Imbalanced Data: 
 Techniques such as SMOTE (Synthetic Minority Over-sampling Technique) and class weighting were considered to handle imbalanced classes. Class weighting was ultimately chosen to balance the classes by assigning a higher weight to the minority classes, improving the model's ability to correctly predict them.
 
@@ -156,6 +168,16 @@ I have used an 80/20 split, where 80% of the data was used for training the mode
 
 ### Implementation
 I have defined our features (X) and target (y) and used the train_test_split function from scikit-learn to perform the split. This method ensures that the split is random and stratified, maintaining the proportion of each class in both the training and testing sets.
+
+### Training and Testing Set Shapes
+
+| Dataset  | Shape       |
+|----------|-------------|
+| X_train  | (3539, 36)  |
+| X_test   | (885, 36)   |
+| y_train  | (3539,)     |
+| y_test   | (885,)      |
+
 
 ### Risk of Data Leakage
 Data leakage occurs when information from outside the training dataset is used to create the model. In this project, I have ensured that there was no data leakage by splitting the dataset before any preprocessing steps such as scaling or encoding. This is particularly important in time series datasets where future data might inadvertently influence the model, but since our dataset does not involve time-series data, the risk is minimized.
@@ -218,6 +240,17 @@ An ensemble method that improves accuracy and controls overfitting by constructi
 | **Accuracy**  |           |        |          | **0.76**  |
 | **Macro Avg** | 0.71      | 0.67   | 0.68     | 885     |
 | **Weighted Avg** | 0.75  | 0.76   | 0.75     | 885     |
+
+
+### Voting Classifier Report
+| Class        | Precision | Recall | F1-Score | Support |
+|--------------|-----------|--------|----------|---------|
+| Dropout      | 0.82      | 0.74   | 0.78     | 284     |
+| Enrolled     | 0.60      | 0.38   | 0.46     | 159     |
+| Graduate     | 0.79      | 0.94   | 0.86     | 442     |
+| **Accuracy** |           |        |          | **0.77**|
+| **Macro Avg**| 0.74      | 0.69   | 0.70     | 885     |
+| **Weighted Avg** | 0.76  | 0.77   | 0.76     | 885     |
 
 
 #### Gradient Boosting Classifier
